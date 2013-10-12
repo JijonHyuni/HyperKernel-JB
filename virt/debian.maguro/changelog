@@ -1,0 +1,164 @@
+linux-maguro (3.0.0-3.12) saucy; urgency=low
+
+  [ Colin Ian King ]
+
+  * [Config] enable deadline I/O scheduler by default
+    Testing shows that the deadline scheduler on the flash file system
+    performs slightly better than CFQ.  It also consumes marginally less
+    power.  So enable deadline by default.
+
+  [ John Johansen ]
+
+  * SAUCE: (no-up) apparmor: fix apparmor module status for none root users
+    - LP: #1199912
+
+ --  Tim Gardner <tim.gardner@canonical.com>  Thu, 11 Jul 2013 08:13:01 -0600
+
+linux-maguro (3.0.0-3.11) saucy; urgency=low
+
+  [ Andy Whitcroft ]
+
+  * [Config] CONFIG_CORE_DUMP_DEFAULT_ELF_HEADERS=y
+    - LP: #1108082
+
+  [ Tim Gardner ]
+
+  * [Config] Enable more NF options
+    - LP: #1199351
+
+ -- Andy Whitcroft <apw@canonical.com>  Thu, 04 Jul 2013 17:00:15 +0100
+
+linux-maguro (3.0.0-3.10) saucy; urgency=low
+
+  [ John Johansen ]
+
+  * SAUCE: apparmor: 3.0 backport fix list_splice_init_rcu 7f708931
+
+ -- Andy Whitcroft <apw@canonical.com>  Wed, 03 Jul 2013 15:03:27 +0100
+
+linux-maguro (3.0.0-3.9) saucy; urgency=low
+
+  [ Scott James Remnant ]
+
+  * SAUCE: (no-up) trace: add trace events for open(), exec() and uselib()
+    - LP: #1194127
+
+ --  Tim Gardner <tim.gardner@canonical.com>  Tue, 25 Jun 2013 11:18:28 -0600
+
+linux-maguro (3.0.0-3.8) saucy; urgency=low
+
+  [ John Johansen ]
+
+  * SAUCE: apparmor: 3.0 backport of apparmor3
+
+  [ Tim Gardner ]
+
+  * Fix insertchanges for maguro
+  * [debian] Use dh_strip
+    - LP: #1192759
+  * do_tools=false when cross compiling
+
+ --  Tim Gardner <tim.gardner@canonical.com>  Wed, 19 Jun 2013 08:50:24 -0600
+
+linux-maguro (3.0.0-3.7) saucy; urgency=low
+
+  * UBUNTU: SAUCE: (no-up) raise the default console 'quiet' level to 2
+    -LP: #1192309
+
+ --  Tim Gardner <tim.gardner@canonical.com>  Tue, 18 Jun 2013 14:18:06 -0600
+
+linux-maguro (3.0.0-3.6) saucy; urgency=low
+
+  * UBUNTU: [Config] Enable and modularize all netfilter matches
+    -LP: #1191197
+
+ --  Tim Gardner <tim.gardner@canonical.com>  Mon, 17 Jun 2013 13:40:52 -0600
+
+linux-maguro (3.0.0-2.5) saucy; urgency=low
+
+  * UBUNTU: Fix headers and tools-common packaging harder
+  * UBUNTU: Move all in-dep build depends to Build-depends
+
+ --  Tim Gardner <tim.gardner@canonical.com>  Wed, 12 Jun 2013 14:04:05 -0600
+
+linux-maguro (3.0.0-2.4) saucy; urgency=low
+
+  * UBUNTU: Fix packaging for tools-common
+
+ --  Tim Gardner <tim.gardner@canonical.com>  Wed, 12 Jun 2013 09:04:45 -0600
+
+linux-maguro (3.0.0-2.3) saucy; urgency=low
+
+  * Enabled tools perf and related packages
+  * Sync configs with mainline distro
+    CONFIG_AUDIT=y
+    CONFIG_AUDIT_GENERIC=y
+    CONFIG_BLK_DEV_RAM_SIZE=65536
+    CONFIG_CC_STACKPROTECTOR=y
+    # CONFIG_COMPAT_BRK is not set
+    CONFIG_DEFAULT_MMAP_MIN_ADDR=32768
+    CONFIG_DEFAULT_SECURITY="apparmor"
+    CONFIG_DEFAULT_SECURITY_APPARMOR=y
+    # CONFIG_DEFAULT_SECURITY_DAC is not set
+    # CONFIG_DEFAULT_SECURITY_SELINUX is not set
+    # CONFIG_DEFAULT_SECURITY_SMACK is not set
+    # CONFIG_DEFAULT_SECURITY_TOMOYO is not set
+    # CONFIG_DEVKMEM is not set
+    CONFIG_DEVTMPFS_MOUNT=y
+    CONFIG_DNS_RESOLVER=m
+    CONFIG_ECRYPT_FS=m
+    # CONFIG_FANOTIFY_ACCESS_PERMISSIONS is not set
+    # CONFIG_IMA is not set
+    CONFIG_IP6_NF_SECURITY=m
+    CONFIG_IP_NF_SECURITY=m
+    CONFIG_KEYS=y
+    CONFIG_KEYS_DEBUG_PROC_KEYS=y
+    CONFIG_LSM_MMAP_MIN_ADDR=0
+    CONFIG_NETFILTER_XT_TARGET_AUDIT=m
+    CONFIG_NETFILTER_XT_TARGET_CONNSECMARK=m
+    CONFIG_NETFILTER_XT_TARGET_SECMARK=m
+    CONFIG_NETLABEL=y
+    CONFIG_NETWORK_SECMARK=y
+    CONFIG_NF_CONNTRACK_SECMARK=y
+    CONFIG_SECCOMP=y
+    CONFIG_SECURITY=y
+    CONFIG_SECURITYFS=y
+    CONFIG_SECURITY_APPARMOR=y
+    CONFIG_SECURITY_APPARMOR_BOOTPARAM_VALUE=1
+    CONFIG_SECURITY_NETWORK=y
+    CONFIG_SECURITY_NETWORK_XFRM=y
+    CONFIG_SECURITY_PATH=y
+    CONFIG_SECURITY_SELINUX=y
+    CONFIG_SECURITY_SELINUX_AVC_STATS=y
+    CONFIG_SECURITY_SELINUX_BOOTPARAM=y
+    CONFIG_SECURITY_SELINUX_BOOTPARAM_VALUE=0
+    CONFIG_SECURITY_SELINUX_CHECKREQPROT_VALUE=1
+    CONFIG_SECURITY_SELINUX_DEVELOP=y
+    CONFIG_SECURITY_SELINUX_DISABLE=y
+    # CONFIG_SECURITY_SELINUX_POLICYDB_VERSION_MAX is not set
+    CONFIG_SECURITY_SMACK=y
+    CONFIG_SECURITY_TOMOYO=y
+    CONFIG_STRICT_DEVMEM=y
+    CONFIG_SYN_COOKIES=y
+
+ --  Tim Gardner <tim.gardner@canonical.com>  Fri, 31 May 2013 10:58:12 -0600
+
+linux-maguro (3.0.0-1.2) saucy; urgency=low
+
+  * UBUNTU: Added lttng
+  * UBUNTU: [Config] Enable support for /proc/net/wireless
+
+ -- Andy Whitcroft <apw@canonical.com>  Thu, 23 May 2013 11:51:19 +0100
+
+linux-maguro (3.0.0-0.1) saucy; urgency=low
+
+  * Based on git://phablet.ubuntu.com/CyanogenMod/android_kernel_samsung_tuna.git phablet-10.1
+  * Build with gcc-4.6
+
+ -- Tim Gardner <tim.gardner@canonical.com>  Mon, 20 May 2013 10:10:48 -0600
+
+linux-maguro (3.0.0-0.0) saucy; urgency=low
+
+  * changelog placeholder
+
+ -- Andy Whitcroft <apw@canonical.com>  Fri, 03 May 2013 17:00:50 +0100

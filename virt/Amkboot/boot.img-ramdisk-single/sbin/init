@@ -1,0 +1,26 @@
+#!/bin/sh
+
+BB=/bin/busybox
+
+mkdir -m 0755 /proc
+mount -t proc proc /proc
+mkdir -m 0755 /sys
+mount -t sysfs sys /sys
+mkdir -p /dev
+
+mount -t devtmpfs -o mode=0755,nr_inodes=0 devtmpfs /dev
+echo 0 4 1 7 > /proc/sys/kernel/printk
+
+/bin/busybox mkdir /system
+
+sh /bin/sysinfo.sh 10
+
+umount /system
+umount -l /proc
+umount -l /sys
+umount -l /dev
+$BB cp /_init /init
+sleep 1
+/init
+
+

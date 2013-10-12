@@ -1,0 +1,90 @@
+Source: linux-maguro
+Section: devel
+Priority: optional
+Maintainer: Ubuntu Kernel Team <kernel-team@lists.ubuntu.com>
+Standards-Version: 3.8.4.0
+Build-Depends: debhelper (>= 5), cpio, module-init-tools, kernel-wedge (>= 2.24ubuntu1), libelf-dev, binutils-dev, rsync, libdw-dev, python-dev, gcc-4.6, xmlto, docbook-utils, ghostscript, transfig, bzip2, sharutils, asciidoc
+Vcs-Git: git://kernel.ubuntu.com/ubuntu/ubuntu-saucy.git maguro
+
+Package: linux-maguro-headers-3.0.0-3
+Architecture: armhf
+Section: devel
+Priority: optional
+Depends: ${misc:Depends}, coreutils | fileutils (>= 4.0)
+Description: Header files related to Linux kernel version 3.0.0
+ This package provides kernel header files for version 3.0.0, for sites
+ that want the latest kernel headers. Please read
+ /usr/share/doc/linux-maguro-headers-3.0.0-3/debian.README.gz for details
+
+Package: linux-maguro-tools-common
+Architecture: armhf
+Section: kernel
+Priority: optional
+Depends: ${misc:Depends}
+Description: Linux kernel version specific tools for version 3.0.0
+ This package provides the kernel ABI independent parts for kernel
+ version locked tools (such as perf) for version PGKVER.
+
+Package: linux-maguro-tools-3.0.0-3
+Architecture: armhf
+Section: devel
+Priority: optional
+Depends: ${misc:Depends}, ${shlibs:Depends}, linux-maguro-tools-common
+Description: Linux kernel version specific tools for version 3.0.0-3
+ This package provides the kernel ABI dependant parts for kernel
+ version locked tools (such as perf) for version 3.0.0-3 on
+ .
+
+
+Package: linux-image-3.0.0-3-maguro
+Architecture: armhf
+Section: admin
+Priority: optional
+Pre-Depends: dpkg (>= 1.10.24)
+Depends: ${misc:Depends}, ${shlibs:Depends}, initramfs-tools (>= 0.36ubuntu6), coreutils | fileutils (>= 4.0), module-init-tools (>= 3.3-pre11-4ubuntu3), wireless-crda
+Conflicts: hotplug (<< 0.0.20040105-1)
+Recommends: 
+Suggests: fdutils, linux-maguro-source-3.0.0
+Description: Linux kernel image for version 3.0.0 on Galaxy Nexus
+ This package contains the Linux kernel image for version 3.0.0 on
+ Galaxy Nexus.
+ .
+ Also includes the corresponding System.map file, the modules built by the
+ packager, and scripts that try to ensure that the system is not left in an
+ unbootable state after an update.
+ .
+ Supports Galaxy Nexus processors.
+ .
+ Galaxy Nexus phone
+ .
+ You likely do not want to install this package directly. Instead, install
+ the linux-maguro meta-package, which will ensure that upgrades work
+ correctly, and that supporting packages are also installed.
+
+Package: linux-headers-3.0.0-3-maguro
+Architecture: armhf
+Section: devel
+Priority: optional
+Depends: ${misc:Depends}, coreutils | fileutils (>= 4.0), linux-maguro-headers-3.0.0-3, ${shlibs:Depends}
+Description: Linux kernel headers for version 3.0.0 on Galaxy Nexus
+ This package provides kernel header files for version 3.0.0 on
+ Galaxy Nexus.
+ .
+ This is for sites that want the latest kernel headers.  Please read
+ /usr/share/doc/linux-maguro-headers-3.0.0-3/debian.README.gz for details.
+
+Package: linux-image-3.0.0-3-maguro-dbgsym
+Architecture: armhf
+Section: devel
+Priority: optional
+Depends: ${misc:Depends}
+Provides: linux-debug
+Description: Linux kernel debug image for version 3.0.0 on Galaxy Nexus
+ This package provides a kernel debug image for version 3.0.0 on
+ Galaxy Nexus.
+ .
+ This is for sites that wish to debug the kernel.
+ .
+ The kernel image contained in this package is NOT meant to boot from. It
+ is uncompressed, and unstripped. This package also includes the
+ unstripped modules.

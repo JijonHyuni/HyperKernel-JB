@@ -1,0 +1,12 @@
+--- arch/arm/kernel/machine_kexec.c
++++ arch/arm/kernel/machine_kexec.c
+@@ -101,9 +96,6 @@
+ 	mem_text_write_kernel_word(&kexec_indirection_page, page_list);
+ 	mem_text_write_kernel_word(&kexec_mach_type, machine_arch_type);
+ 	mem_text_write_kernel_word(&kexec_boot_atags, image->start - KEXEC_ARM_ZIMAGE_OFFSET + KEXEC_ARM_ATAGS_OFFSET);
+-#ifdef CONFIG_KEXEC_HARDBOOT
+-	mem_text_write_kernel_word(&kexec_hardboot, image->hardboot);
+-#endif
+ 
+ 	/* copy our kernel relocation code to the control code page */
+ 	memcpy(reboot_code_buffer,
